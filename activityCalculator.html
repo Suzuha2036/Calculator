@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Calculator</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <div class="container">
+        <div class="container-display">
+            <input class="display" type="text" id="display" value="" readonly>
+        </div>
+        <div class="buttons">
+            <table>
+                <tr>
+                    <td><input class="numberButton" type="button" value="7" onclick="showToDisplay('7')"></td>
+                    <td><input class="numberButton" type="button" value="8" onclick="showToDisplay('8')"></td>
+                    <td><input class="numberButton" type="button" value="9" onclick="showToDisplay('9')"></td>
+                    <td><input class="functionButton" type="button" value="/" onclick="showToDisplay('/')"></td>
+                </tr>
+                <tr>
+                    <td><input class="numberButton" type="button" value="4" onclick="showToDisplay('4')"></td>
+                    <td><input class="numberButton" type="button" value="5" onclick="showToDisplay('5')"></td>
+                    <td><input class="numberButton" type="button" value="6" onclick="showToDisplay('6')"></td>
+                    <td><input class="functionButton" type="button" value="*" onclick="showToDisplay('*')"></td>
+                </tr>
+                <tr>
+                    <td><input class="numberButton" type="button" value="1" onclick="showToDisplay('1')"></td>
+                    <td><input class="numberButton" type="button" value="2" onclick="showToDisplay('2')"></td>
+                    <td><input class="numberButton" type="button" value="3" onclick="showToDisplay('3')"></td>
+                    <td><input class="functionButton" type="button" value="-" onclick="showToDisplay('-')"></td>
+                </tr>
+                <tr>
+                    <td><input class="functionButton" type="button" value="C" onclick="clearDisplay()"></td>
+                    <td><input class="numberButton" type="button" value="0" onclick="showToDisplay('0')"></td>
+                    <td><input class="functionButton" type="button" value="=" onclick="calculate()"></td>
+                    <td><input class="functionButton" type="button" value="+" onclick="showToDisplay('+')"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <script>
+      function showToDisplay(value) {
+          var calculatorDisplay = document.getElementById('display');
+          calculatorDisplay.value += value;
+      }
+      function calculate() {
+          var calculatorDisplay = document.getElementById('display');
+          try {
+              calculatorDisplay.value = eval(calculatorDisplay.value);
+          } catch (error) {
+              calculatorDisplay.value = 'Error';
+          }
+      }
+      function clearDisplay() {
+          var calculatorDisplay = document.getElementById('display');
+          calculatorDisplay.value = '';
+      }
+  </script>
+
+</body>
+
+</html>
